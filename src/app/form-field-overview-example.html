@@ -1,0 +1,19 @@
+<form [formGroup]="empForm" (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="fields-container">
+        <mat-form-field>
+            <input formControlName="ename" matInput placeholder=Ename>
+            <mat-error *ngIf="empForm.controls['ename'].errors?.required">Ename is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="job" matInput placeholder=Job>
+            <mat-error *ngIf="empForm.controls['job'].errors?.required">Job is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="sal" matInput placeholder=Salary>
+        </mat-form-field>
+    </div>
+    <div class="buttons-container">
+        <button mat-raised-button type="submit" [disabled]="empForm.invalid">Submit</button>
+        <button mat-raised-button type="button" (click)="onClear()">Clear</button>
+    </div>
+</form>
